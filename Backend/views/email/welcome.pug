@@ -1,0 +1,18 @@
+extends baseEmail
+
+block content
+  p Xin chào #{name},
+  p Chào mừng bạn đến với Arima Gym, cảm ơn bạn đã lựa chọn chúng tôi 🎉🙏
+  p Bạn có thể vào đây để bấm vào đây để mua các gọi tập
+  p Mong rằng bạn sẽ có những trải nghiệm tuyệt vời tại Arima Gym
+  table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href=`${url}`, target='_blank') Mua gói tập
+  p Nếu bạn có bất cứ điều gì thắc mắc, vui lòng liên hệ cho tôi qua số 0366015815
+  p - Hoang Dang Almira, CEO
