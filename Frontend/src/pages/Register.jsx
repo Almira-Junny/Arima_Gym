@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Layout from "../layouts/auth/layout";
+import Layout from "../layouts/auth/Layout";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { register } from "../redux/features/authSlice";
