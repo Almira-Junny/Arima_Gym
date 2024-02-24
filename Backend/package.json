@@ -5,9 +5,13 @@
     "node": ">=18.0.0"
   },
   "description": "Hello",
-  "main": "app.js",
+  "main": "server.js",
   "targets": {
     "main": false
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "browserslist": "last 2 versions",
   "license": "MIT",
