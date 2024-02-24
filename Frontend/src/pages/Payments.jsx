@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { useSelection } from "../utils/useSelection";
-import PaymentTable from "../components/payments/paymentTable";
+import PaymentTable from "../components/payments/PaymentTable";
 import Search from "../components/search/Search";
 import { applyPagination } from "../utils/applyPagination";
 import Layout from "../layouts/dashboard/Layout";
