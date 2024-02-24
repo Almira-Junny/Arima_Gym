@@ -86,7 +86,7 @@ function Layout(props) {
               Ý chí giống như cơ bắp. Bạn càng rèn luyện nó thường xuyên, nó
               càng mạnh mẽ hơn
             </Typography>
-            <img alt="" src="/public/img/logo.jpg" />
+            <img alt="" src="/img/logo.jpg" />
           </Box>
         </Grid>
       </Grid>
