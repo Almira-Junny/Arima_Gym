@@ -9,10 +9,6 @@ import { IconButton, useMediaQuery } from "@mui/material";
 import IconArrowBack from "@mui/icons-material/ArrowBack";
 import IconArrowForward from "@mui/icons-material/ArrowForward";
 import PlanItem from "../plan/PlanItem";
-import { useQuery } from "react-query";
-import { getTopPlans } from "../../api/plan";
-import { useDispatch } from "react-redux";
-import { showAlert } from "../../redux/features/alertSlice";
 import { useRef } from "react";
 
 const SliderArrow = (props) => {
@@ -62,20 +58,9 @@ const StyledDots = styled("ul")(({ theme }) => ({
   },
 }));
 
-function Plan() {
+function Plan(props) {
   const sliderRef = useRef(null);
-  const dispatch = useDispatch();
-  const { data: plans } = useQuery("top-plans", getTopPlans, {
-    refetchOnWindowFocus: false,
-    onError: (err) => {
-      dispatch(
-        showAlert({
-          severity: "error",
-          message: err.response.data.message,
-        })
-      );
-    },
-  });
+  const { plans } = props;
 
   const { breakpoints } = useTheme();
   const matchMobileView = useMediaQuery(breakpoints.down("md"));

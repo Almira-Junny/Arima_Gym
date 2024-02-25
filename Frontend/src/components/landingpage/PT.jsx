@@ -9,10 +9,6 @@ import { useTheme, styled } from "@mui/material/styles";
 import IconArrowBack from "@mui/icons-material/ArrowBack";
 import IconArrowForward from "@mui/icons-material/ArrowForward";
 import PTItem from "../pt/PTItem";
-import { useQuery } from "react-query";
-import { getTopPts } from "../../api/user";
-import { useDispatch } from "react-redux";
-import { showAlert } from "../../redux/features/alertSlice";
 
 const SliderArrow = (props) => {
   const { onClick, type, className } = props;
@@ -61,22 +57,10 @@ const StyledDots = styled("ul")(({ theme }) => ({
   },
 }));
 
-function PT() {
-  const dispatch = useDispatch();
+function PT(props) {
+  const { pts } = props;
   const { breakpoints } = useTheme();
   const matchMobileView = useMediaQuery(breakpoints.down("md"));
-
-  const { data: pts } = useQuery("top-pts", getTopPts, {
-    refetchOnWindowFocus: false,
-    onError: (err) => {
-      dispatch(
-        showAlert({
-          severity: "error",
-          message: err.response.data.message,
-        })
-      );
-    },
-  });
 
   const sliderConfig = {
     infinite: true,

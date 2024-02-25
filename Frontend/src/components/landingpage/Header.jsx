@@ -9,6 +9,7 @@ import { useTheme } from "@mui/material/styles";
 import { Menu, Close } from "@mui/icons-material";
 import StyledButton from "../styledbutton/StyledButton";
 import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
 
 const navigations = [
   {
@@ -29,7 +30,8 @@ const navigations = [
   },
 ];
 
-function Header() {
+function Header(props) {
+  const { handleLogOut } = props;
   const navigate = useNavigate();
   const { isLoggedIn } = useSelector((state) => state.auth);
   const [visibleMenu, setVisibleMenu] = useState(false);
@@ -142,14 +144,24 @@ function Header() {
             </Box>
             <Box sx={{ "& button:first-child": { mr: 2 } }}>
               {isLoggedIn ? (
-                <StyledButton
-                  disableHoverEffect={true}
-                  onClick={() => {
-                    navigate("/dashboard");
-                  }}
-                >
-                  Tới trang quản lý
-                </StyledButton>
+                <>
+                  <StyledButton
+                    disableHoverEffect={true}
+                    onClick={() => {
+                      navigate("/dashboard");
+                    }}
+                  >
+                    Tới trang quản lý
+                  </StyledButton>
+                  <StyledButton
+                    disableHoverEffect={true}
+                    onClick={() => {
+                      handleLogOut();
+                    }}
+                  >
+                    Đăng xuất
+                  </StyledButton>
+                </>
               ) : (
                 <>
                   <StyledButton
@@ -192,3 +204,7 @@ function Header() {
 }
 
 export default Header;
+
+Header.propTypes = {
+  handleLogOut: PropTypes.func,
+};

@@ -13,6 +13,8 @@ import { getAllPlans } from "../api/plan";
 import { useDispatch } from "react-redux";
 import { showAlert } from "../redux/features/alertSlice";
 import { getCheckoutSession } from "../api/payment";
+import LoadingPage from "./LoadingPage";
+import { useState } from "react";
 
 const descriptions = [
   "Sử dụng đầy đủ các dịch vụ của Arima Gym",
@@ -23,7 +25,8 @@ const descriptions = [
 
 function PaymentPage() {
   const dispatch = useDispatch();
-  const { data: plans } = useQuery("all-plans", getAllPlans, {
+  const [isLoadingBuy, setIsLoadingBuy] = useState(false);
+  const { data: plans, isLoading } = useQuery("all-plans", getAllPlans, {
     refetchOnWindowFocus: false,
     onError: (err) => {
       dispatch(
@@ -37,7 +40,9 @@ function PaymentPage() {
 
   const handleBuy = async (id) => {
     try {
+      setIsLoadingBuy(true);
       const data = await getCheckoutSession(id);
+      setIsLoadingBuy(false);
       window.location.href = data.session.url;
     } catch (err) {
       dispatch(
@@ -80,72 +85,74 @@ function PaymentPage() {
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
-          {plans
-            ? plans.data.map((plan) => (
-                // Enterprise card is full width at sm breakpoint
-                <Grid item key={plan?._id} xs={12} sm={6} md={4}>
-                  <Card>
-                    <CardHeader
-                      title={plan?.name}
-                      titleTypographyProps={{ align: "center" }}
-                      subheaderTypographyProps={{
-                        align: "center",
-                      }}
+          {!isLoading && !isLoadingBuy ? (
+            plans.data.map((plan) => (
+              // Enterprise card is full width at sm breakpoint
+              <Grid item key={plan?._id} xs={12} sm={6} md={4}>
+                <Card>
+                  <CardHeader
+                    title={plan?.name}
+                    titleTypographyProps={{ align: "center" }}
+                    subheaderTypographyProps={{
+                      align: "center",
+                    }}
+                    sx={{
+                      backgroundColor: (theme) =>
+                        theme.palette.mode === "light"
+                          ? theme.palette.grey[200]
+                          : theme.palette.grey[700],
+                    }}
+                  />
+                  <CardContent>
+                    <Box
                       sx={{
-                        backgroundColor: (theme) =>
-                          theme.palette.mode === "light"
-                            ? theme.palette.grey[200]
-                            : theme.palette.grey[700],
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "baseline",
+                        mb: 2,
                       }}
-                    />
-                    <CardContent>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "baseline",
-                          mb: 2,
-                        }}
+                    >
+                      <Typography
+                        component="h2"
+                        variant="h3"
+                        color="text.primary"
                       >
-                        <Typography
-                          component="h2"
-                          variant="h3"
-                          color="text.primary"
-                        >
-                          {plan.price / 1000}K
-                        </Typography>
-                        {/* <Typography variant="h6" color="text.secondary">
+                        {plan.price / 1000}K
+                      </Typography>
+                      {/* <Typography variant="h6" color="text.secondary">
                       VNĐ
                     </Typography> */}
-                      </Box>
-                      <ul style={{ padding: 20 }}>
-                        {descriptions.map((line) => (
-                          <Typography
-                            component="li"
-                            variant="subtitle1"
-                            align="center"
-                            key={line}
-                          >
-                            {line}
-                          </Typography>
-                        ))}
-                      </ul>
-                    </CardContent>
-                    <CardActions>
-                      <Button
-                        fullWidth
-                        variant="contained"
-                        onClick={() => {
-                          handleBuy(plan._id);
-                        }}
-                      >
-                        Mua ngay
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))
-            : null}
+                    </Box>
+                    <ul style={{ padding: 20 }}>
+                      {descriptions.map((line) => (
+                        <Typography
+                          component="li"
+                          variant="subtitle1"
+                          align="center"
+                          key={line}
+                        >
+                          {line}
+                        </Typography>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      onClick={() => {
+                        handleBuy(plan._id);
+                      }}
+                    >
+                      Mua ngay
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))
+          ) : (
+            <LoadingPage />
+          )}
         </Grid>
       </Container>
     </>

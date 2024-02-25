@@ -37,7 +37,10 @@ app.use(express.static(`${__dirname}/public`));
 // );
 app.use(
   cors({
-    origin: 'https://gym-advertising-and-management-website.vercel.app',
+    origin: [
+      'https://gym-advertising-and-management-website.vercel.app/',
+      'http://127.0.0.1:5173',
+    ],
     credentials: true,
   }),
 );

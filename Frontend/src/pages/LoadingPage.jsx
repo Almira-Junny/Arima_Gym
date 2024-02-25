@@ -5,6 +5,7 @@ function LoadingPage() {
     <Box
       sx={{
         display: "flex",
+        flex: "1 1 auto",
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
