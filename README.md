@@ -27,33 +27,33 @@ https://docs.google.com/spreadsheets/d/1tDndGaapOoyBrXLCGQvz19gM4N2bIBg5C10wS6rH
 
 ## Database
 
-![image](https://gist.github.com/assets/71836205/227552a5-27de-492a-a0a0-2677988df4af)
+https://gist.github.com/assets/71836205/227552a5-27de-492a-a0a0-2677988df4af
 
 ## Screenshots
 
 - **Trang chủ**
 
-    ![image](https://gist.github.com/assets/71836205/5d973875-0c59-4734-9b01-d07507288452)
+    https://gist.github.com/assets/71836205/5d973875-0c59-4734-9b01-d07507288452
 
 - **Gói tập**
 
-    ![image](https://gist.github.com/assets/71836205/bf85bb51-ffd4-447e-b722-f6ec0e47e537)
+    https://gist.github.com/assets/71836205/bf85bb51-ffd4-447e-b722-f6ec0e47e537
   
 - **Đăng nhập**
 
-    ![image](https://gist.github.com/assets/71836205/86f930a5-1a4a-4f62-8c4c-a77f0e8f5c37)
+    https://gist.github.com/assets/71836205/86f930a5-1a4a-4f62-8c4c-a77f0e8f5c37
 
 - **Trang quản lý Admin**
 
-    ![image](https://gist.github.com/assets/71836205/126a4801-2dc2-4775-b536-d9a5cf661db1)
+    https://gist.github.com/assets/71836205/126a4801-2dc2-4775-b536-d9a5cf661db1
 
 - **Trang quản lý người dùng**
 
-     ![image](https://gist.github.com/assets/71836205/d38336f3-e850-426b-b6ea-8487c05f4506)
+     https://gist.github.com/assets/71836205/d38336f3-e850-426b-b6ea-8487c05f4506
 
 - **Trang quản lý huấn luyện viên**
 
-    ![image](https://gist.github.com/assets/71836205/5eb1b618-6227-4c95-949d-85ea7dd7740b)
+    https://gist.github.com/assets/71836205/5eb1b618-6227-4c95-949d-85ea7dd7740b
 
 - **Quét QR**
 
