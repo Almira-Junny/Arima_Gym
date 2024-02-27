@@ -113,10 +113,20 @@ function UserTable(props) {
                     </TableCell>
                     <TableCell>{genderMap[user.gender]}</TableCell>
                     <TableCell>
-                      {format(new Date(user.membershipStartDate), "dd/MM/yyyy")}
+                      {!user.membershipStartDate
+                        ? "Chưa mua gói tập"
+                        : format(
+                            new Date(user.membershipStartDate),
+                            "dd/MM/yyyy"
+                          )}
                     </TableCell>
                     <TableCell>
-                      {format(new Date(user.membershipEndDate), "dd/MM/yyyy")}
+                      {!user.membershipEndDate
+                        ? "Chưa mua gói tập"
+                        : format(
+                            new Date(user.membershipEndDate),
+                            "dd/MM/yyyy"
+                          )}
                     </TableCell>
                   </TableRow>
                 );
