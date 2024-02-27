@@ -52,7 +52,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordConfirm: req.body.passwordConfirm,
   });
 
-  const url = `${req.protocol}://${req.get('host')}/me`;
+  const url = `${process.env.FE_URL}/payment`;
   await new Email(newUser, url).sendWelcome();
 
   createSendToken(newUser, 201, res);
