@@ -18,7 +18,6 @@ const userSchema = mongoose.Schema({
   },
   fullName: {
     type: String,
-    required: [true, 'Vui lòng nhập đầy đủ họ và tên của bạn'],
   },
   email: {
     type: String,
