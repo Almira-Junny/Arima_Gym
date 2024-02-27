@@ -49,8 +49,6 @@ const createPaymentCheckout = async (data) => {
   const paymentMethod = data.payment_method_types[0];
   const status = data.payment_status;
 
-  await Payment.create({ plan, user: user._id, amount, paymentMethod, status });
-
   const planData = await Plan.findById(plan);
 
   let updateData;
@@ -76,7 +74,15 @@ const createPaymentCheckout = async (data) => {
     };
   }
 
-  await User.findByIdAndUpdate(user._id, updateData);
+  const a = User.findByIdAndUpdate(user._id, updateData);
+  const b = Payment.create({
+    plan,
+    user: user._id,
+    amount,
+    paymentMethod,
+    status,
+  });
+  await Promise.all([a, b]);
 };
 
 exports.webhookCheckout = (req, res, next) => {
