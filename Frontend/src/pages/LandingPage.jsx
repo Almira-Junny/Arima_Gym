@@ -1,10 +1,10 @@
 import Header from "../components/landingpage/Header";
 import Overview from "../components/landingpage/Overview";
 import { useEffect, useMemo, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { showAlert } from "../redux/features/alertSlice";
-import { changeUserInfo, logout } from "../redux/features/authSlice";
-import { getTopPts, getUserById } from "../api/user";
+import { logout } from "../redux/features/authSlice";
+import { getTopPts } from "../api/user";
 import { useLocation } from "react-router-dom";
 import Plan from "../components/landingpage/Plan";
 import Introduction from "../components/landingpage/Introduction";
@@ -26,7 +26,7 @@ function LandingPage() {
   const isPayment = query.get("isPayment");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingLogout, setIsLoadingLogout] = useState(false);
-  const { userInfo } = useSelector((state) => state.auth);
+  // const { userInfo } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const { data: plans, isLoading: isLoadingPlan } = useQuery(
@@ -69,20 +69,38 @@ function LandingPage() {
     );
   };
 
+  // useEffect(() => {
+  //   if (isPayment) {
+  //     const changeInfo = async () => {
+  //       setIsLoading(true);
+  //       const res = await getUserById(userInfo._id);
+
+  //       dispatch(changeUserInfo(res));
+
+  //       setIsLoading(false);
+
+  //       dispatch(
+  //         showAlert({
+  //           severity: "success",
+  //           message: "Thanh toán thành công",
+  //         })
+  //       );
+  //     };
+
+  //     changeInfo().catch(console.error);
+  //   }
+  // }, []);
+
   useEffect(() => {
     if (isPayment) {
       const changeInfo = async () => {
         setIsLoading(true);
-        const res = await getUserById(userInfo._id);
-
-        dispatch(changeUserInfo(res));
-
+        await dispatch(logout());
         setIsLoading(false);
-
         dispatch(
           showAlert({
             severity: "success",
-            message: "Thanh toán thành công",
+            message: "Mua gói tập thành công. Vui lòng đăng nhập lại",
           })
         );
       };
