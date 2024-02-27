@@ -8,13 +8,13 @@ const userSchema = mongoose.Schema({
     type: String,
     required: [true, 'Vui lòng nhập họ của bạn'],
     minLength: [2, 'Vui lòng nhập họ tối thiểu 2 chữ'],
-    maxLength: [15, 'Vui lòng nhập họ tối đa 15 chữ'],
+    maxLength: [30, 'Vui lòng nhập họ tối đa 30 chữ'],
   },
   firstName: {
     type: String,
     required: [true, 'Vui lòng nhập tên của bạn'],
     minLength: [2, 'Vui lòng nhập tên tối thiểu 2 chữ'],
-    maxLength: [10, 'Vui lòng nhập tên tối đa 10 chữ'],
+    maxLength: [30, 'Vui lòng nhập tên tối đa 30 chữ'],
   },
   fullName: {
     type: String,
