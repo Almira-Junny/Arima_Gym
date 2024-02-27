@@ -29,7 +29,7 @@ https://docs.google.com/spreadsheets/d/1tDndGaapOoyBrXLCGQvz19gM4N2bIBg5C10wS6rH
 
 ## Database
 
-![image](https://gist.github.com/assets/71836205/227552a5-27de-492a-a0a0-2677988df4af)
+![image](https://github-production-user-asset-6210df.s3.amazonaws.com/71836205/308276206-227552a5-27de-492a-a0a0-2677988df4af.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240227%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240227T174837Z&X-Amz-Expires=300&X-Amz-Signature=9327b5ad1bb4a246a69e80d76007e00afb2ac4c8dd260bf3b0feb9bf7973893a&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=0)
 
 ## Screenshots
 
