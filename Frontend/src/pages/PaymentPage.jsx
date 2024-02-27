@@ -15,6 +15,7 @@ import { showAlert } from "../redux/features/alertSlice";
 import { getCheckoutSession } from "../api/payment";
 import LoadingPage from "./LoadingPage";
 import { useState } from "react";
+import { logout } from "../redux/features/authSlice";
 
 const descriptions = [
   "Sử dụng đầy đủ các dịch vụ của Arima Gym",
@@ -26,6 +27,7 @@ const descriptions = [
 function PaymentPage() {
   const dispatch = useDispatch();
   const [isLoadingBuy, setIsLoadingBuy] = useState(false);
+  const [isLoadingLogout, setIsLoadingLogout] = useState(false);
   const { data: plans, isLoading } = useQuery("all-plans", getAllPlans, {
     refetchOnWindowFocus: false,
     onError: (err) => {
@@ -54,9 +56,21 @@ function PaymentPage() {
     }
   };
 
+  const handleLogOut = async () => {
+    setIsLoadingLogout(true);
+    await dispatch(logout());
+    setIsLoadingLogout(false);
+    dispatch(
+      showAlert({
+        severity: "success",
+        message: "Đăng xuất thành công",
+      })
+    );
+  };
+
   return (
     <>
-      <Header />
+      <Header handleLogOut={handleLogOut} />
       <Container
         disableGutters
         maxWidth="sm"
@@ -85,7 +99,7 @@ function PaymentPage() {
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
-          {!isLoading && !isLoadingBuy ? (
+          {!isLoading && !isLoadingBuy && !isLoadingLogout ? (
             plans.data.map((plan) => (
               // Enterprise card is full width at sm breakpoint
               <Grid item key={plan?._id} xs={12} sm={6} md={4}>
