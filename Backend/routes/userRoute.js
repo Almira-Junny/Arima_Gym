@@ -37,28 +37,27 @@ router.route('/').get(getAllUsers);
 router.post('/logout', logout);
 
 //Protect all route after this
-router.use(protect);
 
-router.patch('/updatePassword', updatePassword);
+router.patch('/updatePassword', protect, updatePassword);
 
-router.patch('/updateMe', uploadUserPhoto, resizeUserPhoto, updateMe);
+router.patch('/updateMe', protect, uploadUserPhoto, resizeUserPhoto, updateMe);
 
-router.delete('/deleteMe', deleteMe);
+router.delete('/deleteMe', protect, deleteMe);
 
-router.get('/me', getMe);
+router.get('/me', protect, getMe);
 
-router.get('/createQr', createQr);
+router.get('/createQr', protect, createQr);
 
-router.get('/scanQr/:token', restrictTo('admin'), scanQr);
+router.get('/scanQr/:token', protect, restrictTo('admin'), scanQr);
 
-router.get('/searchUserByNumber/:number', getUserByNumber);
+router.get('/searchUserByNumber/:number', protect, getUserByNumber);
 
-router.route('/').post(restrictTo('admin'), createUser);
+router.route('/').post(protect, restrictTo('admin'), createUser);
 
 router
   .route('/:id')
   .get(getUser)
-  .patch(restrictTo('admin'), updateUser)
-  .delete(restrictTo('admin'), deleteUser);
+  .patch(protect, restrictTo('admin'), updateUser)
+  .delete(protect, restrictTo('admin'), deleteUser);
 
 module.exports = router;

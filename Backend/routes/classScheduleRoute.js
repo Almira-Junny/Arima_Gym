@@ -14,9 +14,9 @@ const router = express.Router();
 
 router.use(protect);
 
-router.use('/classByName/:name', getClassScheduleByName);
+router.get('/classByName/:name', getClassScheduleByName);
 
-router.use('/:classId/classRegistrations', classRegistrationRouter);
+router.get('/:classId/classRegistrations', classRegistrationRouter);
 
 router
   .route('/')
