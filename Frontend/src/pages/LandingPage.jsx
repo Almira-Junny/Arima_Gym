@@ -87,7 +87,7 @@ function LandingPage() {
         );
       };
 
-      changeInfo();
+      changeInfo().catch(console.error);
     }
   }, []);
 

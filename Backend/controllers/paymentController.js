@@ -42,7 +42,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   });
 });
 
-const createPaymentCheckout = catchAsync(async (data) => {
+const createPaymentCheckout = async (data) => {
   const plan = data.client_reference_id;
   const user = await User.findOne({ email: data.customer_email });
   const amount = data.amount_total;
@@ -77,9 +77,9 @@ const createPaymentCheckout = catchAsync(async (data) => {
   }
 
   await User.findByIdAndUpdate(user._id, updateData);
-});
+};
 
-exports.webhookCheckout = async (req, res, next) => {
+exports.webhookCheckout = (req, res, next) => {
   const signature = req.headers['stripe-signature'];
 
   let event;
@@ -96,7 +96,7 @@ exports.webhookCheckout = async (req, res, next) => {
 
   switch (event.type) {
     case 'checkout.session.completed':
-      await createPaymentCheckout(event.data.object);
+      createPaymentCheckout(event.data.object);
       break;
     // ... handle other event types
     default:
