@@ -225,11 +225,7 @@ function Dashboard() {
 
               {userInfo?.role === "pt" ? (
                 <Grid xs={12}>
-                  <img
-                    src="/public/img/ptDashboard.jpg"
-                    width="100%"
-                    height="70%"
-                  />
+                  <img src="/img/ptDashboard.jpg" width="100%" height="70%" />
                 </Grid>
               ) : null}
             </Grid>
