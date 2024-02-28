@@ -15,6 +15,11 @@ https://gym-advertising-and-management-website.vercel.app/
 
 ( Lưu ý: Do sử dụng free server nên đôi lúc hệ thống sẽ hoạt động không ổn định )
 
+Test Account:
+- Quản lý: thanhoangdang@gmail.com / 123456789
+- Người dùng: thanhoangdang01@gmail.com / 123456789
+- Huấn luyện viên: thanhoangdang02@gmail.com / 123456789
+
 
 ## API Reference
 
