@@ -40,7 +40,7 @@ https://docs.google.com/spreadsheets/d/1tDndGaapOoyBrXLCGQvz19gM4N2bIBg5C10wS6rH
 
 - **Trang chủ**
 
-    ![image](https://github-production-user-asset-6210df.s3.amazonaws.com/71836205/308276391-5d973875-0c59-4734-9b01-d07507288452.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240227%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240227T175730Z&X-Amz-Expires=300&X-Amz-Signature=6ebc6953f00386a087527ee28925c56fbbd08469c036cd1172923c09e43f903d&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=0)
+    ![image](https://www.dropbox.com/scl/fi/k1ium9tmxz9s559j6uoop/Untitled.png?rlkey=preo8wntqabrn123yjkik433d&dl=0)
 
 - **Gói tập**
 
